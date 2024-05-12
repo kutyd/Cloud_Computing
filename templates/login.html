@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title>Login Page</title>
+    </head>
+    <body>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="email" name="email" placeholder="Email" {% if email_exists %} value="{{ email }}" {% endif %}>
+            <input type="password" name="password" placeholder="Password">
+            {% if email_exists %}
+            <input type="password" name="password_verify" placeholder="Verify Password">
+            <p>Account is not registered. Please sign up.</p>
+            {% endif %}
+            <button type="submit">Login</button>
+        </form>
+    </body>
+</html>
